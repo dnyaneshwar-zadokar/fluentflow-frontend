@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useNavigate } from "react-router-dom";
 import { 
   ArrowLeft, 
@@ -18,13 +19,17 @@ import {
   Target,
   Clock,
   CheckCircle,
-  XCircle
+  XCircle,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 
 const Practice = () => {
   const navigate = useNavigate();
   const [isRecording, setIsRecording] = useState(false);
   const [message, setMessage] = useState("");
+  const [activeTab, setActiveTab] = useState("ai-practice");
+  const [isTabsCollapsed, setIsTabsCollapsed] = useState(false);
   const [conversation, setConversation] = useState([
     {
       role: "ai",
@@ -103,8 +108,51 @@ const Practice = () => {
       </header>
 
       <div className="container mx-auto px-6 py-8">
-        <Tabs defaultValue="ai-practice" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-muted/20 mb-8">
+        {/* Mobile Collapsible Tabs */}
+        <div className="md:hidden mb-6">
+          <Collapsible open={!isTabsCollapsed} onOpenChange={setIsTabsCollapsed}>
+            <CollapsibleTrigger asChild>
+              <Button variant="glass" className="w-full justify-between">
+                <span className="flex items-center">
+                  {activeTab === "ai-practice" && <><MessageCircle className="w-4 h-4 mr-2" />AI Practice</>}
+                  {activeTab === "peer-practice" && <><Users className="w-4 h-4 mr-2" />Peer Practice</>}
+                  {activeTab === "micro-learning" && <><BookOpen className="w-4 h-4 mr-2" />Micro-Learning</>}
+                </span>
+                {isTabsCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-2 space-y-2">
+              <Button 
+                variant={activeTab === "ai-practice" ? "default" : "glass"} 
+                className="w-full justify-start"
+                onClick={() => { setActiveTab("ai-practice"); setIsTabsCollapsed(true); }}
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                AI Practice
+              </Button>
+              <Button 
+                variant={activeTab === "peer-practice" ? "default" : "glass"} 
+                className="w-full justify-start"
+                onClick={() => { setActiveTab("peer-practice"); setIsTabsCollapsed(true); }}
+              >
+                <Users className="w-4 h-4 mr-2" />
+                Peer Practice
+              </Button>
+              <Button 
+                variant={activeTab === "micro-learning" ? "default" : "glass"} 
+                className="w-full justify-start"
+                onClick={() => { setActiveTab("micro-learning"); setIsTabsCollapsed(true); }}
+              >
+                <BookOpen className="w-4 h-4 mr-2" />
+                Micro-Learning
+              </Button>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
+
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          {/* Desktop Tabs */}
+          <TabsList className="hidden md:grid w-full grid-cols-3 bg-muted/20 mb-8">
             <TabsTrigger value="ai-practice" className="text-card-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               <MessageCircle className="w-4 h-4 mr-2" />
               AI Practice

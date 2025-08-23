@@ -77,45 +77,45 @@ const Dashboard = () => {
           </p>
         </div>
 
-        {/* Quick Stats */}
+        {/* Quick Stats - Duolingo-style */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <Card className="glass-card border-card-border">
+          <Card className="glass-card border-card-border bg-gradient-streak hover:scale-105 transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="flex items-center justify-center mb-2">
-                <Flame className="w-8 h-8 text-orange-500" />
+                <Flame className="w-8 h-8 text-white animate-bounce-custom" />
               </div>
-              <div className="text-2xl font-bold text-card-foreground">{stats.streak}</div>
-              <div className="text-sm text-muted-foreground">Day Streak</div>
+              <div className="text-2xl font-bold text-white">{stats.streak}</div>
+              <div className="text-sm text-white/80">Day Streak 🔥</div>
             </CardContent>
           </Card>
 
-          <Card className="glass-card border-card-border">
+          <Card className="glass-card border-card-border bg-gradient-xp hover:scale-105 transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="flex items-center justify-center mb-2">
-                <Target className="w-8 h-8 text-primary" />
+                <Target className="w-8 h-8 text-white" />
               </div>
-              <div className="text-2xl font-bold text-card-foreground">{stats.totalSessions}</div>
-              <div className="text-sm text-muted-foreground">Sessions</div>
+              <div className="text-2xl font-bold text-white">{stats.totalSessions}</div>
+              <div className="text-sm text-white/80">Sessions ⭐</div>
             </CardContent>
           </Card>
 
-          <Card className="glass-card border-card-border">
+          <Card className="glass-card border-card-border bg-gradient-primary hover:scale-105 transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="flex items-center justify-center mb-2">
-                <Clock className="w-8 h-8 text-accent" />
+                <Clock className="w-8 h-8 text-white" />
               </div>
-              <div className="text-2xl font-bold text-card-foreground">{stats.minutesPracticed}</div>
-              <div className="text-sm text-muted-foreground">Minutes</div>
+              <div className="text-2xl font-bold text-white">{stats.minutesPracticed}</div>
+              <div className="text-sm text-white/80">Minutes 📚</div>
             </CardContent>
           </Card>
 
-          <Card className="glass-card border-card-border">
+          <Card className="glass-card border-card-border bg-gradient-accent hover:scale-105 transition-all duration-300">
             <CardContent className="p-6 text-center">
               <div className="flex items-center justify-center mb-2">
-                <Trophy className="w-8 h-8 text-yellow-500" />
+                <Trophy className="w-8 h-8 text-white animate-celebration" />
               </div>
-              <div className="text-2xl font-bold text-card-foreground">15</div>
-              <div className="text-sm text-muted-foreground">Achievements</div>
+              <div className="text-2xl font-bold text-white">15</div>
+              <div className="text-sm text-white/80">Achievements 🏆</div>
             </CardContent>
           </Card>
         </div>
@@ -130,30 +130,33 @@ const Dashboard = () => {
                 <CardDescription>Track your improvement across key skills</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-3 gap-8 text-center">
-                  <div>
-                    <ProgressRing progress={stats.fluencyScore} size={100} color="hsl(var(--primary))">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                  <div className="hover:scale-110 transition-all duration-300">
+                    <ProgressRing progress={stats.fluencyScore} size={120} color="hsl(var(--primary))" className="animate-slide-up">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-card-foreground">{stats.fluencyScore}%</div>
-                        <div className="text-xs text-muted-foreground">Fluency</div>
+                        <div className="text-xs text-muted-foreground">💬 Fluency</div>
                       </div>
                     </ProgressRing>
+                    <div className="mt-2 text-xs text-primary font-medium">Great progress!</div>
                   </div>
-                  <div>
-                    <ProgressRing progress={stats.grammarScore} size={100} color="hsl(var(--accent))">
+                  <div className="hover:scale-110 transition-all duration-300">
+                    <ProgressRing progress={stats.grammarScore} size={120} color="hsl(var(--accent))" className="animate-slide-up">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-card-foreground">{stats.grammarScore}%</div>
-                        <div className="text-xs text-muted-foreground">Grammar</div>
+                        <div className="text-xs text-muted-foreground">📝 Grammar</div>
                       </div>
                     </ProgressRing>
+                    <div className="mt-2 text-xs text-accent font-medium">Excellent work!</div>
                   </div>
-                  <div>
-                    <ProgressRing progress={stats.pronunciationScore} size={100} color="hsl(var(--secondary))">
+                  <div className="hover:scale-110 transition-all duration-300">
+                    <ProgressRing progress={stats.pronunciationScore} size={120} color="hsl(var(--secondary))" className="animate-slide-up">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-card-foreground">{stats.pronunciationScore}%</div>
-                        <div className="text-xs text-muted-foreground">Pronunciation</div>
+                        <div className="text-xs text-muted-foreground">🗣️ Pronunciation</div>
                       </div>
                     </ProgressRing>
+                    <div className="mt-2 text-xs text-secondary font-medium">Keep practicing!</div>
                   </div>
                 </div>
               </CardContent>
