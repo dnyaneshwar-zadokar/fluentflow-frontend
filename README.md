@@ -1,54 +1,44 @@
-# Welcome to your Lovable project
+# SpeakFluently
 
-## Project info
+## AI-Powered English Communication & Confidence Booster
 
-**URL**: https://lovable.dev/projects/b9033bc5-4724-4655-ba21-f4342ac701a8
+SpeakFluently is a modern web application designed to help users improve their English communication skills through AI-powered practice, real-time feedback, and personalized learning paths.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **AI-Powered Conversations**: Practice speaking with intelligent AI tutors
+- **Real-time Feedback**: Get instant pronunciation and grammar corrections
+- **Personalized Learning**: Adaptive learning paths based on your skill level
+- **Progress Tracking**: Monitor your improvement with detailed analytics
+- **Gamification**: Earn badges, maintain streaks, and compete on leaderboards
+- **Business English**: Specialized modules for professional communication
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b9033bc5-4724-4655-ba21-f4342ac701a8) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+1. Clone the repository:
+```bash
 git clone <YOUR_GIT_URL>
+cd speakfluently
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4. Open your browser and navigate to `http://localhost:8080`
 
 ## What technologies are used for this project?
 
@@ -60,14 +50,30 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/b9033bc5-4724-4655-ba21-f4342ac701a8) and click on Share -> Publish.
+This project can be deployed to various platforms:
 
-## Can I connect a custom domain to my Lovable project?
+- **Vercel**: Connect your GitHub repository for automatic deployments
+- **Netlify**: Drag and drop your build folder or connect via Git
+- **GitHub Pages**: Use GitHub Actions for automated deployment
 
-Yes, you can!
+### Build for Production
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+npm run build
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The build artifacts will be stored in the `dist/` directory.
+
+## Development Tools
+
+This project was built using modern development tools including:
+- AI-assisted development with Lovable
+- Component-based architecture
+- TypeScript for type safety
+- Tailwind CSS for styling
+
+## License
+
+This project is for educational purposes.
